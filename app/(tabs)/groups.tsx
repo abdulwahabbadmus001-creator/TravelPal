@@ -7,7 +7,7 @@ import { mockGroups } from '../../constants/mockData';
 import GroupCard from '../../components/GroupCard';
 
 export default function GroupsScreen() {
-  const myGroups = mockGroups.slice(0, 2);
+  const myGroups = mockGroups.filter(g => g.owner === 'Wahab Badmus');
 
   return (
     <SafeAreaView style={styles.container}>
@@ -15,7 +15,10 @@ export default function GroupsScreen() {
 
       <View style={styles.header}>
         <Text style={styles.headerTitle}>My Groups</Text>
-        <TouchableOpacity style={styles.createButton}>
+        <TouchableOpacity
+          style={styles.createButton}
+          onPress={() => router.push('/group/create')}
+        >
           <Text style={styles.createButtonText}>+ Create</Text>
         </TouchableOpacity>
       </View>
