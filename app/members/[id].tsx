@@ -4,7 +4,7 @@ import {
 } from 'react-native';
 import { useState } from 'react';
 import { useLocalSearchParams, router } from 'expo-router';
-import { mockGroups, mockGroupMembers, mockJoinRequests, mockBlockedUsers } from '../../../constants/mockData';
+import { mockGroups, mockGroupMembers, mockJoinRequests, mockBlockedUsers } from '../../constants/mockData';
 
 const { width } = Dimensions.get('window');
 

@@ -3,7 +3,7 @@ import {
   ScrollView, SafeAreaView, StatusBar
 } from 'react-native';
 import { useLocalSearchParams, router } from 'expo-router';
-import { mockGroups, mockGroupMembers, mockUser } from '../../constants/mockData';
+import { mockGroups } from '../../constants/mockData';
 import TrustScore from '../../components/TrustScore';
 
 export default function GroupDetailScreen() {
@@ -11,9 +11,6 @@ export default function GroupDetailScreen() {
   const group = mockGroups.find(g => g.id === id);
 
   if (!group) return null;
-
-  const membersList = mockGroupMembers[group.id] || [];
-  const isOwner = group.owner === mockUser.name;
 
   const canJoin = group.trustScore >= 25;
 
@@ -49,7 +46,7 @@ export default function GroupDetailScreen() {
 
           <View style={styles.infoRow}>
             <View style={styles.infoItem}>
-              <Text style={styles.infoText}>👥 {membersList.length}/{group.maxMembers} members</Text>
+              <Text style={styles.infoText}>👥 {group.members}/{group.maxMembers} members</Text>
             </View>
             <View style={styles.infoItem}>
               <Text style={styles.infoText}>👤 by {group.owner}</Text>
@@ -67,37 +64,25 @@ export default function GroupDetailScreen() {
           )}
 
           <View style={styles.membersCard}>
-            <Text style={styles.cardTitle}>Members ({membersList.length})</Text>
-            {membersList.slice(0, 5).map((member) => (
-              <View key={member.id} style={styles.memberRow}>
-                <View style={styles.memberAvatar}>
-                  <Text style={styles.memberAvatarText}>{member.name.charAt(0)}</Text>
+            <Text style={styles.cardTitle}>Members ({group.members})</Text>
+            {['Traveller A', 'Traveller B', 'Traveller C']
+              .slice(0, group.members > 3 ? 3 : group.members)
+              .map((name, i) => (
+                <View key={i} style={styles.memberRow}>
+                  <View style={styles.memberAvatar}>
+                    <Text style={styles.memberAvatarText}>{name.charAt(0)}</Text>
+                  </View>
+                  <Text style={styles.memberName}>{name}</Text>
+                  {i === 0 && (
+                    <View style={styles.ownerBadge}>
+                      <Text style={styles.ownerBadgeText}>Owner</Text>
+                    </View>
+                  )}
                 </View>
-                <Text style={styles.memberName}>{member.name}</Text>
-                {member.role === 'owner' ? (
-                  <View style={styles.ownerBadge}>
-                    <Text style={styles.ownerBadgeText}>Owner</Text>
-                  </View>
-                ) : (
-                  <View style={styles.trustScoreBadge}>
-                    <Text style={styles.trustScoreBadgeText}>★ {member.trustScore}</Text>
-                  </View>
-                )}
-              </View>
-            ))}
-            {membersList.length > 5 && (
-              <Text style={styles.moreMembersText}>+ {membersList.length - 5} more members</Text>
-            )}
+              ))}
           </View>
 
-          {isOwner ? (
-            <TouchableOpacity
-              style={styles.manageButton}
-              onPress={() => router.push(`/group/${group.id}/members`)}
-            >
-              <Text style={styles.manageButtonText}>⚙️ Manage Members</Text>
-            </TouchableOpacity>
-          ) : canJoin ? (
+          {canJoin ? (
             group.isPrivate ? (
               <TouchableOpacity style={styles.requestButton}>
                 <Text style={styles.requestButtonText}>Request to Join</Text>
@@ -192,17 +177,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10
   },
   ownerBadgeText: { fontSize: 11, color: '#2563EB', fontWeight: '600' },
-  trustScoreBadge: {
-    backgroundColor: '#ECFDF5',
-    paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10
-  },
-  trustScoreBadgeText: { fontSize: 11, color: '#10B981', fontWeight: '600' },
-  moreMembersText: { fontSize: 13, color: '#6B7280', textAlign: 'center', marginTop: 4 },
-  manageButton: {
-    backgroundColor: '#10B981', borderRadius: 12,
-    padding: 16, alignItems: 'center', marginBottom: 12
-  },
-  manageButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
   joinButton: {
     backgroundColor: '#2563EB', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 12
