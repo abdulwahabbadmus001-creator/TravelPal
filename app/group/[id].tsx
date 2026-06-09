@@ -66,7 +66,9 @@ export default function GroupDetailScreen() {
           )}
 
           <View style={styles.membersCard}>
-            <Text style={styles.cardTitle}>Members ({group.members})</Text>
+            <TouchableOpacity onPress={() => router.push(`/members/${group.id}`)}>
+              <Text style={styles.cardTitle}>Members ({group.members}) →</Text>
+            </TouchableOpacity>
             {['Traveller A', 'Traveller B', 'Traveller C']
               .slice(0, group.members > 3 ? 3 : group.members)
               .map((name, i) => (
