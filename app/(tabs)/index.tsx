@@ -3,6 +3,8 @@ import {
   TextInput, TouchableOpacity, SafeAreaView, StatusBar
 } from 'react-native';
 import { useState } from 'react';
+
+// @ts-ignore: expo-router does not provide TypeScript declarations in this project
 import { router } from 'expo-router';
 import { mockGroups } from '../../constants/mockData';
 import GroupCard from '../../components/GroupCard';
@@ -24,9 +26,15 @@ export default function HomeScreen() {
           <Text style={styles.greeting}>Good morning 👋</Text>
           <Text style={styles.headerTitle}>Find Your Travel Tribe</Text>
         </View>
-        <View style={styles.notifButton}>
+        <TouchableOpacity          
+          style={styles.notifButton}
+          onPress={() => router.push('/notifications')}
+        >
           <Text style={{ fontSize: 20 }}>🔔</Text>
-        </View>
+          <View style={styles.notifBadge}>
+            <Text style={styles.notifBadgeText}>2</Text>
+          </View>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.searchContainer}>
@@ -76,7 +84,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#00AEEF',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -84,7 +92,7 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom: 20,
   },
-  greeting: { color: '#BFDBFE', fontSize: 14 },
+  greeting: { color: '#CCF1FF', fontSize: 14 },
   headerTitle: { color: '#FFFFFF', fontSize: 20, fontWeight: 'bold' },
   notifButton: {
     backgroundColor: 'rgba(255,255,255,0.2)',
@@ -97,7 +105,7 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: '#E5E7EB'
   },
   searchIcon: { fontSize: 16, marginRight: 8 },
-  searchInput: { flex: 1, paddingVertical: 12, fontSize: 15, color: '#111827' },
+  searchInput: { flex: 1, paddingVertical: 12, fontSize: 15, color: '#08182D' },
   statsRow: {
     flexDirection: 'row', paddingHorizontal: 16,
     gap: 12, marginBottom: 16
@@ -107,11 +115,25 @@ const styles = StyleSheet.create({
     padding: 14, alignItems: 'center',
     borderWidth: 1, borderColor: '#E5E7EB'
   },
-  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#2563EB' },
+  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#00AEEF' },
   statLabel: { fontSize: 11, color: '#6B7280', marginTop: 2 },
   sectionTitle: {
     fontSize: 17, fontWeight: 'bold',
-    color: '#111827', paddingHorizontal: 16, marginBottom: 8
+    color: '#08182D', paddingHorizontal: 16, marginBottom: 8
   },
   listContent: { paddingHorizontal: 16, paddingBottom: 100 },
+  notifBadge: {
+  position: 'absolute',
+  top: -4, right: -4,
+  backgroundColor: '#EF4444',
+  width: 16, height: 16,
+  borderRadius: 8,
+  justifyContent: 'center',
+  alignItems: 'center',
+},
+notifBadgeText: {
+  color: '#FFFFFF',
+  fontSize: 9,
+  fontWeight: 'bold',
+},
 });

@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.06, shadowRadius: 8, elevation: 3
   },
   imageContainer: {
-    height: 100, backgroundColor: '#EFF6FF',
+    height: 100, backgroundColor: '#CCF1FF',
     justifyContent: 'center', alignItems: 'center', position: 'relative'
   },
   destinationIcon: { fontSize: 40 },
@@ -74,8 +74,8 @@ const styles = StyleSheet.create({
   },
   privateBadgeText: { fontSize: 11, color: '#D97706', fontWeight: '600' },
   content: { padding: 14 },
-  groupName: { fontSize: 16, fontWeight: 'bold', color: '#111827', marginBottom: 4 },
-  destination: { fontSize: 13, color: '#2563EB', marginBottom: 6, fontWeight: '500' },
+  groupName: { fontSize: 16, fontWeight: 'bold', color: '#08182D', marginBottom: 4 },
+  destination: { fontSize: 13, color: '#00AEEF', marginBottom: 6, fontWeight: '500' },
   description: { fontSize: 13, color: '#6B7280', lineHeight: 18, marginBottom: 12 },
   footer: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   members: { fontSize: 12, color: '#6B7280' },

@@ -90,3 +90,61 @@ export const mockUser = {
   memberSince: "January 2025",
   bio: "Passionate traveller. Love exploring African cities and cultures.",
 };
+
+export const mockGroupMembers: Record<string, Array<{
+  id: string;
+  name: string;
+  trustScore: number;
+  isVerified: boolean;
+  role: string;
+  joinedDate: string;
+}>> = {
+  "1": [
+    { id: "user1", name: "Chidi Okeke", trustScore: 78, isVerified: true, role: "owner", joinedDate: "Jan 2025" },
+    { id: "user2", name: "Amina Yusuf", trustScore: 85, isVerified: true, role: "member", joinedDate: "Feb 2025" },
+    { id: "user3", name: "Taiwo Adeyemi", trustScore: 91, isVerified: false, role: "member", joinedDate: "Mar 2025" },
+    { id: "user4", name: "Ngozi Eze", trustScore: 67, isVerified: true, role: "member", joinedDate: "Mar 2025" },
+  ],
+  "2": [
+    { id: "user5", name: "Emeka Obi", trustScore: 82, isVerified: true, role: "owner", joinedDate: "Jan 2025" },
+    { id: "user6", name: "Fatima Bello", trustScore: 74, isVerified: false, role: "member", joinedDate: "Feb 2025" },
+  ],
+  "3": [
+    { id: "user7", name: "Yusuf Musa", trustScore: 90, isVerified: true, role: "owner", joinedDate: "Dec 2024" },
+    { id: "user8", name: "Kemi Adebayo", trustScore: 88, isVerified: true, role: "member", joinedDate: "Jan 2025" },
+    { id: "user9", name: "Tunde Lawal", trustScore: 35, isVerified: false, role: "member", joinedDate: "Feb 2025" },
+  ],
+  "4": [
+    { id: "user10", name: "Blessing Okon", trustScore: 76, isVerified: true, role: "owner", joinedDate: "Nov 2024" },
+    { id: "user11", name: "Ayo Adeleke", trustScore: 55, isVerified: false, role: "member", joinedDate: "Jan 2025" },
+    { id: "user12", name: "Zara Hassan", trustScore: 69, isVerified: true, role: "member", joinedDate: "Feb 2025" },
+  ],
+};
+
+export const mockJoinRequests: Record<string, Array<{
+  id: string;
+  name: string;
+  trustScore: number;
+  isVerified: boolean;
+  requestDate: string;
+  message: string;
+}>> = {
+  "1": [
+    { id: "req1", name: "Daniel Osei", trustScore: 72, isVerified: true, requestDate: "Today", message: "Would love to join this trip. I am an experienced traveller." },
+    { id: "req2", name: "Sade Williams", trustScore: 45, isVerified: false, requestDate: "Yesterday", message: "This destination is on my bucket list!" },
+  ],
+  "3": [
+    { id: "req3", name: "Musa Ibrahim", trustScore: 88, isVerified: true, requestDate: "Today", message: "Accra is my hometown. Happy to be a local guide for the group." },
+  ],
+  "4": [],
+  "2": [],
+};
+
+export const mockBlockedUsers: Array<{
+  id: string;
+  name: string;
+  blockedDate: string;
+  reason: string;
+}> = [
+  { id: "blocked1", name: "Unknown User", blockedDate: "Last week", reason: "Spam" },
+];

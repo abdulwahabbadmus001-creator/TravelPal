@@ -95,29 +95,29 @@ export default function RegisterScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#2563EB' },
+  container: { flex: 1, backgroundColor: '#00AEEF' },
   scrollContent: { flexGrow: 1 },
   header: { alignItems: 'center', paddingTop: 60, paddingBottom: 30 },
   logo: { fontSize: 32, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 },
-  tagline: { fontSize: 16, color: '#BFDBFE' },
+  tagline: { fontSize: 16, color: '#CCF1FF' },
   form: {
     flex: 1, backgroundColor: '#FFFFFF',
     borderTopLeftRadius: 30, borderTopRightRadius: 30, padding: 30
   },
-  title: { fontSize: 24, fontWeight: 'bold', color: '#111827', marginBottom: 8 },
+  title: { fontSize: 24, fontWeight: 'bold', color: '#08182D', marginBottom: 8 },
   subtitle: { fontSize: 14, color: '#6B7280', marginBottom: 30 },
   inputGroup: { marginBottom: 20 },
   label: { fontSize: 14, fontWeight: '600', color: '#374151', marginBottom: 8 },
   input: {
     borderWidth: 1, borderColor: '#E5E7EB', borderRadius: 12,
-    padding: 14, fontSize: 15, color: '#111827', backgroundColor: '#F9FAFB'
+    padding: 14, fontSize: 15, color: '#08182D', backgroundColor: '#F9FAFB'
   },
   registerButton: {
-    backgroundColor: '#2563EB', borderRadius: 12,
+    backgroundColor: '#00AEEF', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 20, marginTop: 10
   },
   registerButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
   loginRow: { flexDirection: 'row', justifyContent: 'center' },
   loginText: { color: '#6B7280', fontSize: 14 },
-  loginLink: { color: '#2563EB', fontSize: 14, fontWeight: '600' },
+  loginLink: { color: '#00AEEF', fontSize: 14, fontWeight: '600' },
 });

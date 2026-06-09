@@ -2,6 +2,8 @@ import {
   View, Text, StyleSheet, TouchableOpacity,
   ScrollView, SafeAreaView, StatusBar
 } from 'react-native';
+
+// @ts-ignore: expo-router does not provide TypeScript declarations in this project
 import { useLocalSearchParams, router } from 'expo-router';
 import { mockGroups } from '../../constants/mockData';
 import TrustScore from '../../components/TrustScore';
@@ -16,7 +18,7 @@ export default function GroupDetailScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#2563EB" />
+      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
@@ -84,7 +86,10 @@ export default function GroupDetailScreen() {
 
           {canJoin ? (
             group.isPrivate ? (
-              <TouchableOpacity style={styles.requestButton}>
+              <TouchableOpacity
+                style={styles.requestButton}
+                onPress={() => router.push(`/pending/${group.id}`)}
+              >
                 <Text style={styles.requestButtonText}>Request to Join</Text>
               </TouchableOpacity>
             ) : (
@@ -116,7 +121,7 @@ export default function GroupDetailScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#00AEEF',
     flexDirection: 'row', alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16, paddingTop: 12, paddingBottom: 16
@@ -125,7 +130,7 @@ const styles = StyleSheet.create({
   backText: { color: '#FFFFFF', fontSize: 15, fontWeight: '500' },
   headerTitle: { color: '#FFFFFF', fontSize: 18, fontWeight: 'bold' },
   heroSection: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#00AEEF',
     alignItems: 'center', paddingVertical: 24
   },
   destinationEmoji: { fontSize: 50, marginBottom: 8 },
@@ -138,7 +143,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', alignItems: 'center',
     justifyContent: 'space-between', marginBottom: 8, marginTop: 4
   },
-  groupName: { fontSize: 20, fontWeight: 'bold', color: '#111827', flex: 1 },
+  groupName: { fontSize: 20, fontWeight: 'bold', color: '#08182D', flex: 1 },
   privateBadge: {
     backgroundColor: '#FEF3C7',
     paddingHorizontal: 10, paddingVertical: 4, borderRadius: 20
@@ -159,7 +164,7 @@ const styles = StyleSheet.create({
     padding: 16, marginBottom: 16,
     borderWidth: 1, borderColor: '#E5E7EB'
   },
-  cardTitle: { fontSize: 15, fontWeight: 'bold', color: '#111827', marginBottom: 12 },
+  cardTitle: { fontSize: 15, fontWeight: 'bold', color: '#08182D', marginBottom: 12 },
   memberRow: {
     flexDirection: 'row', alignItems: 'center',
     paddingVertical: 8, gap: 10,
@@ -167,18 +172,18 @@ const styles = StyleSheet.create({
   },
   memberAvatar: {
     width: 36, height: 36, borderRadius: 18,
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#CCF1FF',
     justifyContent: 'center', alignItems: 'center'
   },
-  memberAvatarText: { fontSize: 16, fontWeight: 'bold', color: '#2563EB' },
+  memberAvatarText: { fontSize: 16, fontWeight: 'bold', color: '#00AEEF' },
   memberName: { flex: 1, fontSize: 14, color: '#374151', fontWeight: '500' },
   ownerBadge: {
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#CCF1FF',
     paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10
   },
-  ownerBadgeText: { fontSize: 11, color: '#2563EB', fontWeight: '600' },
+  ownerBadgeText: { fontSize: 11, color: '#00AEEF', fontWeight: '600' },
   joinButton: {
-    backgroundColor: '#2563EB', borderRadius: 12,
+    backgroundColor: '#00AEEF', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 12
   },
   joinButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
@@ -193,9 +198,9 @@ const styles = StyleSheet.create({
   },
   disabledButtonText: { color: '#9CA3AF', fontSize: 15, fontWeight: '600' },
   chatButton: {
-    backgroundColor: '#EFF6FF', borderRadius: 12,
+    backgroundColor: '#CCF1FF', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 100,
-    borderWidth: 1, borderColor: '#BFDBFE'
+    borderWidth: 1, borderColor: '#CCF1FF'
   },
-  chatButtonText: { color: '#2563EB', fontSize: 15, fontWeight: '600' },
+  chatButtonText: { color: '#00AEEF', fontSize: 15, fontWeight: '600' },
 });

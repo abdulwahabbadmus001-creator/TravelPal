@@ -2,6 +2,7 @@ import {
   View, Text, StyleSheet, TouchableOpacity,
   ScrollView, SafeAreaView, StatusBar
 } from 'react-native';
+// @ts-ignore: expo-router does not provide TypeScript declarations in this project
 import { router } from 'expo-router';
 import { mockUser } from '../../constants/mockData';
 import TrustScore from '../../components/TrustScore';
@@ -9,7 +10,7 @@ import TrustScore from '../../components/TrustScore';
 export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#2563EB" />
+      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
       <ScrollView showsVerticalScrollIndicator={false}>
 
         <View style={styles.header}>
@@ -62,7 +63,10 @@ export default function ProfileScreen() {
             </View>
           </View>
 
-          <TouchableOpacity style={styles.verifyButton}>
+          <TouchableOpacity
+            style={styles.verifyButton}
+            onPress={() => router.push('/verify')}
+          >
             <Text style={styles.verifyButtonText}>📎 Upload ID Document</Text>
           </TouchableOpacity>
 
@@ -81,7 +85,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#00AEEF',
     alignItems: 'center',
     paddingTop: 20,
     paddingBottom: 30,
@@ -94,7 +98,7 @@ const styles = StyleSheet.create({
   },
   avatarText: { fontSize: 32, fontWeight: 'bold', color: '#FFFFFF' },
   name: { fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 4 },
-  email: { fontSize: 14, color: '#BFDBFE', marginBottom: 12 },
+  email: { fontSize: 14, color: '#CCF1FF', marginBottom: 12 },
   verifiedBadge: {
     backgroundColor: '#10B981',
     paddingHorizontal: 12, paddingVertical: 4, borderRadius: 20
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
   },
   statItem: { flex: 1, alignItems: 'center' },
   statDivider: { width: 1, backgroundColor: '#E5E7EB' },
-  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#2563EB' },
+  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#00AEEF' },
   statLabel: { fontSize: 12, color: '#6B7280', marginTop: 2 },
   bioCard: {
     backgroundColor: '#FFFFFF', borderRadius: 12,
@@ -127,13 +131,13 @@ const styles = StyleSheet.create({
     paddingVertical: 8, borderBottomWidth: 1, borderBottomColor: '#F3F4F6'
   },
   infoLabel: { fontSize: 14, color: '#6B7280' },
-  infoValue: { fontSize: 14, fontWeight: '600', color: '#111827' },
+  infoValue: { fontSize: 14, fontWeight: '600', color: '#08182D' },
   verifyButton: {
-    backgroundColor: '#EFF6FF', borderRadius: 12,
+    backgroundColor: '#CCF1FF', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 12,
-    borderWidth: 1, borderColor: '#BFDBFE'
+    borderWidth: 1, borderColor: '#CCF1FF'
   },
-  verifyButtonText: { color: '#2563EB', fontWeight: '600', fontSize: 15 },
+  verifyButtonText: { color: '#00AEEF', fontWeight: '600', fontSize: 15 },
   logoutButton: {
     backgroundColor: '#FEF2F2', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 100,

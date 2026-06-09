@@ -3,6 +3,7 @@ import {
   TouchableOpacity, SafeAreaView, StatusBar, KeyboardAvoidingView, Platform
 } from 'react-native';
 import { useState } from 'react';
+// @ts-ignore: expo-router does not provide type declarations in this project
 import { useLocalSearchParams, router } from 'expo-router';
 import { mockMessages, mockGroups } from '../../constants/mockData';
 
@@ -24,26 +25,31 @@ export default function ChatScreen() {
     setInput('');
   };
 
-  const renderMessage = ({ item }: { item: typeof mockMessages[0] }) => {
-    const isMe = item.senderId === 'currentUser';
-    return (
-      <View style={[styles.messageContainer, isMe ? styles.myContainer : styles.theirContainer]}>
-        {!isMe && <Text style={styles.senderName}>{item.sender}</Text>}
-        <View style={[styles.bubble, isMe ? styles.myBubble : styles.theirBubble]}>
-          <Text style={[styles.messageText, isMe ? styles.myText : styles.theirText]}>
-            {item.text}
-          </Text>
-        </View>
-        <Text style={[styles.timestamp, isMe ? styles.myTimestamp : styles.theirTimestamp]}>
-          {item.timestamp}
+const renderMessage = ({ item }: { item: typeof mockMessages[0] }) => {
+  const isMe = item.senderId === 'currentUser';
+  return (
+    <TouchableOpacity
+      style={[styles.messageContainer, isMe ? styles.myContainer : styles.theirContainer]}
+      onLongPress={() => router.push(`/report/${item.id}`)}
+      activeOpacity={1}
+      delayLongPress={500}
+    >
+      {!isMe && <Text style={styles.senderName}>{item.sender}</Text>}
+      <View style={[styles.bubble, isMe ? styles.myBubble : styles.theirBubble]}>
+        <Text style={[styles.messageText, isMe ? styles.myText : styles.theirText]}>
+          {item.text}
         </Text>
       </View>
-    );
-  };
+      <Text style={[styles.timestamp, isMe ? styles.myTimestamp : styles.theirTimestamp]}>
+        {item.timestamp}
+      </Text>
+    </TouchableOpacity>
+  );
+};
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#2563EB" />
+      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
@@ -93,7 +99,7 @@ export default function ChatScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#2563EB',
+    backgroundColor: '#00AEEF',
     flexDirection: 'row', alignItems: 'center',
     paddingHorizontal: 16, paddingTop: 12,
     paddingBottom: 16, gap: 12
@@ -101,7 +107,7 @@ const styles = StyleSheet.create({
   backText: { color: '#FFFFFF', fontSize: 22 },
   headerInfo: { flex: 1 },
   groupName: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
-  membersCount: { color: '#BFDBFE', fontSize: 12 },
+  membersCount: { color: '#CCF1FF', fontSize: 12 },
   infoIcon: { fontSize: 20 },
   chatContainer: { flex: 1 },
   messagesList: { padding: 16, paddingBottom: 20 },
@@ -110,14 +116,14 @@ const styles = StyleSheet.create({
   theirContainer: { alignSelf: 'flex-start', alignItems: 'flex-start' },
   senderName: { fontSize: 11, color: '#6B7280', marginBottom: 4, fontWeight: '600' },
   bubble: { padding: 12, borderRadius: 16 },
-  myBubble: { backgroundColor: '#2563EB', borderBottomRightRadius: 4 },
+  myBubble: { backgroundColor: '#00AEEF', borderBottomRightRadius: 4 },
   theirBubble: {
     backgroundColor: '#FFFFFF', borderBottomLeftRadius: 4,
     borderWidth: 1, borderColor: '#E5E7EB'
   },
   messageText: { fontSize: 14, lineHeight: 20 },
   myText: { color: '#FFFFFF' },
-  theirText: { color: '#111827' },
+  theirText: { color: '#08182D' },
   timestamp: { fontSize: 10, marginTop: 4, color: '#9CA3AF' },
   myTimestamp: { textAlign: 'right' },
   theirTimestamp: { textAlign: 'left' },
@@ -129,10 +135,10 @@ const styles = StyleSheet.create({
   input: {
     flex: 1, borderWidth: 1, borderColor: '#E5E7EB',
     borderRadius: 20, paddingHorizontal: 16, paddingVertical: 10,
-    fontSize: 14, color: '#111827', maxHeight: 100, backgroundColor: '#F9FAFB'
+    fontSize: 14, color: '#08182D', maxHeight: 100, backgroundColor: '#F9FAFB'
   },
   sendButton: {
-    backgroundColor: '#2563EB', width: 44, height: 44,
+    backgroundColor: '#00AEEF', width: 44, height: 44,
     borderRadius: 22, justifyContent: 'center', alignItems: 'center'
   },
   sendButtonDisabled: { backgroundColor: '#93C5FD' },

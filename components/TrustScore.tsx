@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', justifyContent: 'space-between',
     alignItems: 'center', marginBottom: 8
   },
-  title: { fontSize: 15, fontWeight: 'bold', color: '#111827' },
+  title: { fontSize: 15, fontWeight: 'bold', color: '#08182D' },
   badge: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 20 },
   badgeText: { fontSize: 12, fontWeight: '600' },
   scoreRow: { flexDirection: 'row', alignItems: 'baseline', marginBottom: 10 },

@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     padding: 24, alignItems: 'center', width: '100%'
   },
   modalIcon: { fontSize: 50, marginBottom: 16 },
-  modalTitle: { fontSize: 22, fontWeight: 'bold', color: '#111827', marginBottom: 12 },
+  modalTitle: { fontSize: 22, fontWeight: 'bold', color: '#08182D', marginBottom: 12 },
   modalMessage: {
     fontSize: 14, color: '#6B7280',
     textAlign: 'center', lineHeight: 20, marginBottom: 24
