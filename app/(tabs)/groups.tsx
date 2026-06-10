@@ -11,7 +11,7 @@ export default function GroupsScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <Text style={styles.headerTitle}>My Groups</Text>
@@ -58,7 +58,7 @@ export default function GroupsScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
     textAlign: 'center', marginBottom: 24
   },
   discoverButton: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     paddingHorizontal: 24, paddingVertical: 12, borderRadius: 12
   },
   discoverButtonText: { color: '#FFFFFF', fontWeight: '600', fontSize: 15 },

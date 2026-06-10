@@ -10,7 +10,7 @@ import TrustScore from '../../components/TrustScore';
 export default function ProfileScreen() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
       <ScrollView showsVerticalScrollIndicator={false}>
 
         <View style={styles.header}>
@@ -85,7 +85,7 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     alignItems: 'center',
     paddingTop: 20,
     paddingBottom: 30,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   },
   statItem: { flex: 1, alignItems: 'center' },
   statDivider: { width: 1, backgroundColor: '#E5E7EB' },
-  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#00AEEF' },
+  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#08182D' },
   statLabel: { fontSize: 12, color: '#6B7280', marginTop: 2 },
   bioCard: {
     backgroundColor: '#FFFFFF', borderRadius: 12,
@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     padding: 16, alignItems: 'center', marginBottom: 12,
     borderWidth: 1, borderColor: '#CCF1FF'
   },
-  verifyButtonText: { color: '#00AEEF', fontWeight: '600', fontSize: 15 },
+  verifyButtonText: { color: '#08182D', fontWeight: '600', fontSize: 15 },
   logoutButton: {
     backgroundColor: '#FEF2F2', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 100,

@@ -95,7 +95,7 @@ export default function RegisterScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#00AEEF' },
+  container: { flex: 1, backgroundColor: '#08182D' },
   scrollContent: { flexGrow: 1 },
   header: { alignItems: 'center', paddingTop: 60, paddingBottom: 30 },
   logo: { fontSize: 32, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 },
@@ -113,11 +113,11 @@ const styles = StyleSheet.create({
     padding: 14, fontSize: 15, color: '#08182D', backgroundColor: '#F9FAFB'
   },
   registerButton: {
-    backgroundColor: '#00AEEF', borderRadius: 12,
+    backgroundColor: '#08182D', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 20, marginTop: 10
   },
   registerButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
   loginRow: { flexDirection: 'row', justifyContent: 'center' },
   loginText: { color: '#6B7280', fontSize: 14 },
-  loginLink: { color: '#00AEEF', fontSize: 14, fontWeight: '600' },
+  loginLink: { color: '#08182D', fontSize: 14, fontWeight: '600' },
 });

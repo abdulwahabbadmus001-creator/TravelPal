@@ -6,13 +6,9 @@
     "@expo-google-fonts/inter": "^0.4.2",
     "@expo/metro-runtime": "~56.0.13",
     "expo": "~56.0.8",
-<<<<<<< HEAD
     "expo-font": "~56.0.5",
-    "expo-splash-screen": "~56.0.10",
-=======
     "expo-router": "~56.2.9",
->>>>>>> origin/feature/onboarding-group-management
-    "expo-status-bar": "~56.0.4",
+    "expo-splash-screen": "~56.0.10",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-native": "0.85.3",

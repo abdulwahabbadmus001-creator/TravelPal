@@ -49,7 +49,7 @@ const renderMessage = ({ item }: { item: typeof mockMessages[0] }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
@@ -99,7 +99,7 @@ const renderMessage = ({ item }: { item: typeof mockMessages[0] }) => {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row', alignItems: 'center',
     paddingHorizontal: 16, paddingTop: 12,
     paddingBottom: 16, gap: 12
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   theirContainer: { alignSelf: 'flex-start', alignItems: 'flex-start' },
   senderName: { fontSize: 11, color: '#6B7280', marginBottom: 4, fontWeight: '600' },
   bubble: { padding: 12, borderRadius: 16 },
-  myBubble: { backgroundColor: '#00AEEF', borderBottomRightRadius: 4 },
+  myBubble: { backgroundColor: '#08182D', borderBottomRightRadius: 4 },
   theirBubble: {
     backgroundColor: '#FFFFFF', borderBottomLeftRadius: 4,
     borderWidth: 1, borderColor: '#E5E7EB'
@@ -138,7 +138,7 @@ const styles = StyleSheet.create({
     fontSize: 14, color: '#08182D', maxHeight: 100, backgroundColor: '#F9FAFB'
   },
   sendButton: {
-    backgroundColor: '#00AEEF', width: 44, height: 44,
+    backgroundColor: '#08182D', width: 44, height: 44,
     borderRadius: 22, justifyContent: 'center', alignItems: 'center'
   },
   sendButtonDisabled: { backgroundColor: '#93C5FD' },

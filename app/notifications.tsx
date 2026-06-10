@@ -127,7 +127,7 @@ export default function NotificationsScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
@@ -171,7 +171,7 @@ export default function NotificationsScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -189,7 +189,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderBottomColor: '#CCF1FF',
   },
-  unreadBannerText: { color: '#00AEEF', fontSize: 13, fontWeight: '600' },
+  unreadBannerText: { color: '#08182D', fontSize: 13, fontWeight: '600' },
   listContent: { padding: 16, paddingBottom: 100 },
   notifCard: {
     backgroundColor: '#FFFFFF',
@@ -230,7 +230,7 @@ const styles = StyleSheet.create({
   unreadDot: {
     width: 8, height: 8,
     borderRadius: 4,
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     marginLeft: 8,
   },
   notifMessage: { fontSize: 13, color: '#6B7280', lineHeight: 18, marginBottom: 6 },

@@ -74,7 +74,7 @@ export default function LoginScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#00AEEF' },
+  container: { flex: 1, backgroundColor: '#08182D' },
   scrollContent: { flexGrow: 1 },
   header: { alignItems: 'center', paddingTop: 80, paddingBottom: 40 },
   logo: { fontSize: 32, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 },
@@ -92,13 +92,13 @@ const styles = StyleSheet.create({
     padding: 14, fontSize: 15, color: '#08182D', backgroundColor: '#F9FAFB'
   },
   forgotPassword: { alignSelf: 'flex-end', marginBottom: 24 },
-  forgotText: { color: '#00AEEF', fontSize: 14, fontWeight: '500' },
+  forgotText: { color: '#08182D', fontSize: 14, fontWeight: '500' },
   loginButton: {
-    backgroundColor: '#00AEEF', borderRadius: 12,
+    backgroundColor: '#08182D', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 20
   },
   loginButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
   registerRow: { flexDirection: 'row', justifyContent: 'center' },
   registerText: { color: '#6B7280', fontSize: 14 },
-  registerLink: { color: '#00AEEF', fontSize: 14, fontWeight: '600' },
+  registerLink: { color: '#08182D', fontSize: 14, fontWeight: '600' },
 });

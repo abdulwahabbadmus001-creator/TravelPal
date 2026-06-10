@@ -84,7 +84,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     padding: 14, alignItems: 'center',
     borderWidth: 1, borderColor: '#E5E7EB'
   },
-  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#00AEEF' },
+  statNumber: { fontSize: 22, fontWeight: 'bold', color: '#08182D' },
   statLabel: { fontSize: 11, color: '#6B7280', marginTop: 2 },
   sectionTitle: {
     fontSize: 17, fontWeight: 'bold',

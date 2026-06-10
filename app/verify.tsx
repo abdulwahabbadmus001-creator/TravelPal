@@ -33,7 +33,7 @@ export default function VerifyScreen() {
   if (submitted) {
     return (
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+        <StatusBar barStyle="light-content" backgroundColor="#08182D" />
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
             <Text style={styles.backText}>← Back</Text>
@@ -86,7 +86,7 @@ export default function VerifyScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
@@ -213,7 +213,7 @@ export default function VerifyScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
   headerTitle: { color: '#FFFFFF', fontSize: 18, fontWeight: 'bold' },
   content: { padding: 16, paddingBottom: 100 },
   heroBanner: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     borderRadius: 16, padding: 24,
     alignItems: 'center', marginBottom: 16,
   },
@@ -265,13 +265,13 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: '#E5E7EB',
   },
   docCardSelected: {
-    borderColor: '#00AEEF',
+    borderColor: '#08182D',
     backgroundColor: '#CCF1FF',
   },
   docIcon: { fontSize: 28 },
   docInfo: { flex: 1 },
   docLabel: { fontSize: 14, fontWeight: '600', color: '#374151' },
-  docLabelSelected: { color: '#00AEEF' },
+  docLabelSelected: { color: '#08182D' },
   docDescription: { fontSize: 12, color: '#9CA3AF', marginTop: 2 },
   radioOuter: {
     width: 20, height: 20,
@@ -279,11 +279,11 @@ const styles = StyleSheet.create({
     borderWidth: 2, borderColor: '#D1D5DB',
     justifyContent: 'center', alignItems: 'center',
   },
-  radioOuterSelected: { borderColor: '#00AEEF' },
+  radioOuterSelected: { borderColor: '#08182D' },
   radioInner: {
     width: 10, height: 10,
     borderRadius: 5,
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D'
   },
   uploadButton: {
     backgroundColor: '#CCF1FF',
@@ -292,7 +292,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 8, marginTop: 8, marginBottom: 12,
-    borderWidth: 2, borderColor: '#00AEEF',
+    borderWidth: 2, borderColor: '#08182D',
     borderStyle: 'dashed',
   },
   uploadButtonDone: {
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     borderColor: '#10B981',
   },
   uploadIcon: { fontSize: 20 },
-  uploadButtonText: { fontSize: 15, fontWeight: '600', color: '#00AEEF' },
+  uploadButtonText: { fontSize: 15, fontWeight: '600', color: '#08182D' },
   uploadedCard: {
     backgroundColor: '#F0FDF4',
     borderRadius: 12, padding: 12,
@@ -326,7 +326,7 @@ const styles = StyleSheet.create({
   privacyTitle: { fontSize: 13, fontWeight: '600', color: '#374151', marginBottom: 4 },
   privacyText: { fontSize: 12, color: '#6B7280', lineHeight: 18 },
   submitButton: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     borderRadius: 12, padding: 16,
     alignItems: 'center', marginBottom: 12,
   },
@@ -390,7 +390,7 @@ const styles = StyleSheet.create({
   securityIcon: { fontSize: 18 },
   securityText: { flex: 1, fontSize: 12, color: '#166534', lineHeight: 18 },
   doneButton: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     borderRadius: 12, paddingVertical: 14,
     paddingHorizontal: 40, alignItems: 'center',
   },

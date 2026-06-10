@@ -29,7 +29,7 @@ export default function ReportScreen() {
   if (submitted) {
     return (
       <SafeAreaView style={styles.container}>
-        <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+        <StatusBar barStyle="light-content" backgroundColor="#08182D" />
         <View style={styles.header}>
           <TouchableOpacity onPress={() => router.back()}>
             <Text style={styles.backText}>← Back</Text>
@@ -61,7 +61,7 @@ export default function ReportScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
@@ -152,7 +152,7 @@ export default function ReportScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -184,23 +184,23 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: '#E5E7EB',
   },
   reasonCardSelected: {
-    borderColor: '#00AEEF',
+    borderColor: '#08182D',
     backgroundColor: '#CCF1FF',
   },
   reasonIcon: { fontSize: 22 },
   reasonLabel: { flex: 1, fontSize: 14, color: '#374151', fontWeight: '500' },
-  reasonLabelSelected: { color: '#00AEEF', fontWeight: '600' },
+  reasonLabelSelected: { color: '#08182D', fontWeight: '600' },
   radioOuter: {
     width: 20, height: 20,
     borderRadius: 10,
     borderWidth: 2, borderColor: '#D1D5DB',
     justifyContent: 'center', alignItems: 'center',
   },
-  radioOuterSelected: { borderColor: '#00AEEF' },
+  radioOuterSelected: { borderColor: '#08182D' },
   radioInner: {
     width: 10, height: 10,
     borderRadius: 5,
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
   },
   descriptionInput: {
     backgroundColor: '#FFFFFF',
@@ -262,7 +262,7 @@ const styles = StyleSheet.create({
     textAlign: 'center', marginBottom: 30,
   },
   doneButton: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     borderRadius: 12, paddingVertical: 14,
     paddingHorizontal: 40, alignItems: 'center',
   },

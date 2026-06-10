@@ -18,7 +18,7 @@ export default function GroupDetailScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()} style={styles.backButton}>
@@ -123,7 +123,7 @@ export default function GroupDetailScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row', alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 16, paddingTop: 12, paddingBottom: 16
@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
   backText: { color: '#FFFFFF', fontSize: 15, fontWeight: '500' },
   headerTitle: { color: '#FFFFFF', fontSize: 18, fontWeight: 'bold' },
   heroSection: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     alignItems: 'center', paddingVertical: 24
   },
   destinationEmoji: { fontSize: 50, marginBottom: 8 },
@@ -177,15 +177,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#CCF1FF',
     justifyContent: 'center', alignItems: 'center'
   },
-  memberAvatarText: { fontSize: 16, fontWeight: 'bold', color: '#00AEEF' },
+  memberAvatarText: { fontSize: 16, fontWeight: 'bold', color: '#08182D' },
   memberName: { flex: 1, fontSize: 14, color: '#374151', fontWeight: '500' },
   ownerBadge: {
     backgroundColor: '#CCF1FF',
     paddingHorizontal: 8, paddingVertical: 2, borderRadius: 10
   },
-  ownerBadgeText: { fontSize: 11, color: '#00AEEF', fontWeight: '600' },
+  ownerBadgeText: { fontSize: 11, color: '#08182D', fontWeight: '600' },
   joinButton: {
-    backgroundColor: '#00AEEF', borderRadius: 12,
+    backgroundColor: '#08182D', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 12
   },
   joinButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
@@ -204,5 +204,5 @@ const styles = StyleSheet.create({
     padding: 16, alignItems: 'center', marginBottom: 100,
     borderWidth: 1, borderColor: '#CCF1FF'
   },
-  chatButtonText: { color: '#00AEEF', fontSize: 15, fontWeight: '600' },
+  chatButtonText: { color: '#08182D', fontSize: 15, fontWeight: '600' },
 });

@@ -11,7 +11,7 @@ export default function PendingScreen() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle="light-content" backgroundColor="#00AEEF" />
+      <StatusBar barStyle="light-content" backgroundColor="#08182D" />
 
       <View style={styles.header}>
         <TouchableOpacity onPress={() => router.back()}>
@@ -117,7 +117,7 @@ export default function PendingScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#F9FAFB' },
   header: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
   groupEmoji: { fontSize: 32 },
   groupInfo: { flex: 1 },
   groupName: { fontSize: 15, fontWeight: 'bold', color: '#08182D' },
-  groupDestination: { fontSize: 13, color: '#00AEEF', marginTop: 2 },
+  groupDestination: { fontSize: 13, color: '#08182D', marginTop: 2 },
   privateBadge: {
     backgroundColor: '#FEF3C7',
     paddingHorizontal: 8, paddingVertical: 4, borderRadius: 10,
@@ -223,9 +223,9 @@ const styles = StyleSheet.create({
     borderWidth: 1, borderColor: '#CCF1FF',
   },
   infoIcon: { fontSize: 20 },
-  infoText: { flex: 1, fontSize: 13, color: '#00AEEF', lineHeight: 18 },
+  infoText: { flex: 1, fontSize: 13, color: '#08182D', lineHeight: 18 },
   profileButton: {
-    backgroundColor: '#00AEEF',
+    backgroundColor: '#08182D',
     borderRadius: 12, padding: 16,
     alignItems: 'center', marginBottom: 12,
   },
