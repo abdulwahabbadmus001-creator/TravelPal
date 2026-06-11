@@ -4,14 +4,23 @@ import {
 } from 'react-native';
 import { useState } from 'react';
 import { router } from 'expo-router';
+import { authService } from '../services/api';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    router.replace('/(tabs)');
-  };
+  const handleLogin = async () => {
+  if (!email || !password) return;
+  try {
+    const result = await authService.login(email, password);
+    if (result.success) {
+      router.replace('/(tabs)');
+    }
+  } catch (error: any) {
+    alert(error.response?.data?.message || 'Login failed. Please try again.');
+  }
+};
 
   return (
     <KeyboardAvoidingView

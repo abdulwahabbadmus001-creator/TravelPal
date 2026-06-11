@@ -4,6 +4,7 @@ import {
 } from 'react-native';
 import { useState } from 'react';
 import { router } from 'expo-router';
+import { authService } from '../../services/api';
 
 export default function RegisterScreen() {
   const [name, setName] = useState('');
@@ -11,9 +12,18 @@ export default function RegisterScreen() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleRegister = () => {
-    router.replace('/(tabs)');
-  };
+  const handleRegister = async () => {
+  if (!name || !email || !password) return;
+  try {
+    const result = await authService.register(email, password, name, name.toLowerCase().replace(' ', ''));
+    if (result.userId) {
+      alert('Account created. Please check your email for verification.');
+      router.replace('/(auth)/login');
+    }
+  } catch (error: any) {
+    alert(error.response?.data?.message || 'Registration failed. Please try again.');
+  }
+};
 
   return (
     <KeyboardAvoidingView

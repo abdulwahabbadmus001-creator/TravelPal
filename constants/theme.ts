@@ -31,3 +31,6 @@ export const spacing = {
   xl: 32,
   xxl: 48,
 };
+
+export const API_BASE_URL = 'https://travelpal-backend-de3k.onrender.com/api';
+export const SOCKET_IO_URL = 'https://travelpal-backend-de3k.onrender.com';
