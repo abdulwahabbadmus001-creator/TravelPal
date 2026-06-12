@@ -66,10 +66,10 @@ export default function CreateGroupScreen() {
     mockGroups.push(newGroup);
     
     mockGroupMembers[newId] = [
-      { id: `owner_${newId}`, name: mockUser.name, trustScore: mockUser.trustScore, role: 'owner' }
+      { id: `owner_${newId}`, name: mockUser.name, trustScore: mockUser.trustScore, role: 'owner', isVerified: true, joinedDate: 'Today' }
     ];
     mockJoinRequests[newId] = [];
-    mockBlockedUsers[newId] = [];
+    (mockBlockedUsers as any)[newId] = [];
 
     // Redirect to group details
     router.replace(`/group/${newId}`);

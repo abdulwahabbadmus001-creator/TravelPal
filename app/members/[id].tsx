@@ -39,8 +39,8 @@ export default function MemberManagementScreen() {
       role: 'member' as const
     };
     const updatedMembers = [...members, newMember];
-    setMembers(updatedMembers);
-    mockGroupMembers[groupId] = updatedMembers;
+    setMembers(updatedMembers as any);
+    (mockGroupMembers as any)[groupId] = updatedMembers;
 
     // Remove from requests
     const updatedRequests = requests.filter(r => r.id !== reqId);
@@ -111,10 +111,10 @@ export default function MemberManagementScreen() {
             group.members = updatedMembers.length;
 
             // Add to blocked users list
-            if (!mockBlockedUsers[groupId]) {
-              mockBlockedUsers[groupId] = [];
+            if ((mockBlockedUsers as any)[groupId]) {
+              (mockBlockedUsers as any)[groupId] = [];
             }
-            mockBlockedUsers[groupId].push(memberId);
+            ((mockBlockedUsers as any)[groupId]).push(memberId);
 
             showToast(`Blocked ${name} and revoked access.`);
           }
@@ -261,10 +261,10 @@ export default function MemberManagementScreen() {
                   </View>
 
                   {/* Requester Bio/Profile */}
-                  {req.bio && (
+                 {(req as any).bio && (
                     <View style={styles.bioContainer}>
                       <Text style={styles.bioTitle}>Bio / Message:</Text>
-                      <Text style={styles.bioText}>"{req.bio}"</Text>
+                     <Text style={styles.bioText}>"{(req as any).bio}"</Text>
                     </View>
                   )}
 

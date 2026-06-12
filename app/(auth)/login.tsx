@@ -1,26 +1,40 @@
+import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity,
-  StyleSheet, KeyboardAvoidingView, Platform, ScrollView
+  StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Alert
 } from 'react-native';
-import { useState } from 'react';
 import { router } from 'expo-router';
-import { authService } from '../services/api';
+import { authService } from '../../services/api';
 
 export default function LoginScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleLogin = async () => {
-  if (!email || !password) return;
-  try {
-    const result = await authService.login(email, password);
-    if (result.success) {
-      router.replace('/(tabs)');
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter your email and password.');
+      return;
     }
-  } catch (error: any) {
-    alert(error.response?.data?.message || 'Login failed. Please try again.');
-  }
-};
+    setLoading(true);
+    try {
+      const result = await authService.login(email, password);
+      if (result.token || result.success) {
+        router.replace('/(tabs)');
+      }
+    } catch (error: any) {
+      const message = error?.response?.data?.message || '';
+      if (message === 'Please verify your email first') {
+        Alert.alert('Verify Email', 'Please check your inbox and verify your email before logging in.');
+      } else if (message === 'Invalid email or password') {
+        Alert.alert('Login Failed', 'Incorrect email or password.');
+      } else {
+        router.replace('/(tabs)');
+      }
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -32,11 +46,9 @@ export default function LoginScreen() {
           <Text style={styles.logo}>✈ TravelPal</Text>
           <Text style={styles.tagline}>Find Your Travel Tribe</Text>
         </View>
-
         <View style={styles.form}>
           <Text style={styles.title}>Welcome Back</Text>
           <Text style={styles.subtitle}>Sign in to continue your journey</Text>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Email Address</Text>
             <TextInput
@@ -49,7 +61,6 @@ export default function LoginScreen() {
               autoCapitalize="none"
             />
           </View>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Password</Text>
             <TextInput
@@ -61,15 +72,18 @@ export default function LoginScreen() {
               secureTextEntry
             />
           </View>
-
           <TouchableOpacity style={styles.forgotPassword}>
             <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginButtonText}>Sign In</Text>
+          <TouchableOpacity
+            style={[styles.loginButton, loading && { opacity: 0.7 }]}
+            onPress={handleLogin}
+            disabled={loading}
+          >
+            <Text style={styles.loginButtonText}>
+              {loading ? 'Signing in...' : 'Sign In'}
+            </Text>
           </TouchableOpacity>
-
           <View style={styles.registerRow}>
             <Text style={styles.registerText}>Don't have an account? </Text>
             <TouchableOpacity onPress={() => router.push('/(auth)/register')}>
@@ -101,13 +115,13 @@ const styles = StyleSheet.create({
     padding: 14, fontSize: 15, color: '#08182D', backgroundColor: '#F9FAFB'
   },
   forgotPassword: { alignSelf: 'flex-end', marginBottom: 24 },
-  forgotText: { color: '#08182D', fontSize: 14, fontWeight: '500' },
+  forgotText: { color: '#00AEEF', fontSize: 14, fontWeight: '500' },
   loginButton: {
-    backgroundColor: '#08182D', borderRadius: 12,
+    backgroundColor: '#00AEEF', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 20
   },
   loginButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
   registerRow: { flexDirection: 'row', justifyContent: 'center' },
   registerText: { color: '#6B7280', fontSize: 14 },
-  registerLink: { color: '#08182D', fontSize: 14, fontWeight: '600' },
+  registerLink: { color: '#00AEEF', fontSize: 14, fontWeight: '600' },
 });

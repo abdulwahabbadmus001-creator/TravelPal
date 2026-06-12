@@ -1,3 +1,4 @@
+import React from 'react';
 import { Tabs } from 'expo-router';
 import { Text } from 'react-native';
 import EmergencyButton from '../../components/EmergencyButton';
@@ -15,7 +16,7 @@ export default function TabsLayout() {
             paddingTop: 8,
             height: 65,
           },
-          tabBarActiveTintColor: '#08182D',
+          tabBarActiveTintColor: '#00AEEF',
           tabBarInactiveTintColor: '#9CA3AF',
           tabBarLabelStyle: { fontSize: 12, fontWeight: '600' },
         }}

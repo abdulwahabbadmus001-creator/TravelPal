@@ -1,8 +1,8 @@
+import React, { useState } from 'react';
 import {
   View, Text, TextInput, TouchableOpacity,
-  StyleSheet, KeyboardAvoidingView, Platform, ScrollView
+  StyleSheet, KeyboardAvoidingView, Platform, ScrollView, Alert
 } from 'react-native';
-import { useState } from 'react';
 import { router } from 'expo-router';
 import { authService } from '../../services/api';
 
@@ -11,19 +11,37 @@ export default function RegisterScreen() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
-  if (!name || !email || !password) return;
-  try {
-    const result = await authService.register(email, password, name, name.toLowerCase().replace(' ', ''));
-    if (result.userId) {
-      alert('Account created. Please check your email for verification.');
-      router.replace('/(auth)/login');
+    if (!name || !email || !password) {
+      Alert.alert('Error', 'Please fill in all fields.');
+      return;
     }
-  } catch (error: any) {
-    alert(error.response?.data?.message || 'Registration failed. Please try again.');
-  }
-};
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match.');
+      return;
+    }
+    setLoading(true);
+    try {
+      const result = await authService.register(
+        email, password, name,
+        name.toLowerCase().replace(' ', '')
+      );
+      if (result.userId || result.success) {
+        Alert.alert(
+          'Account Created',
+          'Please check your email and verify your account before logging in.',
+          [{ text: 'OK', onPress: () => router.replace('/(auth)/login') }]
+        );
+      }
+    } catch (error: any) {
+      const message = error?.response?.data?.message || 'Registration failed.';
+      Alert.alert('Error', message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <KeyboardAvoidingView
@@ -35,11 +53,9 @@ export default function RegisterScreen() {
           <Text style={styles.logo}>✈ TravelPal</Text>
           <Text style={styles.tagline}>Find Your Travel Tribe</Text>
         </View>
-
         <View style={styles.form}>
           <Text style={styles.title}>Create Account</Text>
           <Text style={styles.subtitle}>Join thousands of verified travellers</Text>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Full Name</Text>
             <TextInput
@@ -50,7 +66,6 @@ export default function RegisterScreen() {
               placeholderTextColor="#9CA3AF"
             />
           </View>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Email Address</Text>
             <TextInput
@@ -63,7 +78,6 @@ export default function RegisterScreen() {
               autoCapitalize="none"
             />
           </View>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Password</Text>
             <TextInput
@@ -75,7 +89,6 @@ export default function RegisterScreen() {
               secureTextEntry
             />
           </View>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Confirm Password</Text>
             <TextInput
@@ -87,11 +100,15 @@ export default function RegisterScreen() {
               secureTextEntry
             />
           </View>
-
-          <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
-            <Text style={styles.registerButtonText}>Create Account</Text>
+          <TouchableOpacity
+            style={[styles.registerButton, loading && { opacity: 0.7 }]}
+            onPress={handleRegister}
+            disabled={loading}
+          >
+            <Text style={styles.registerButtonText}>
+              {loading ? 'Creating Account...' : 'Create Account'}
+            </Text>
           </TouchableOpacity>
-
           <View style={styles.loginRow}>
             <Text style={styles.loginText}>Already have an account? </Text>
             <TouchableOpacity onPress={() => router.back()}>
@@ -123,11 +140,11 @@ const styles = StyleSheet.create({
     padding: 14, fontSize: 15, color: '#08182D', backgroundColor: '#F9FAFB'
   },
   registerButton: {
-    backgroundColor: '#08182D', borderRadius: 12,
+    backgroundColor: '#00AEEF', borderRadius: 12,
     padding: 16, alignItems: 'center', marginBottom: 20, marginTop: 10
   },
   registerButtonText: { color: '#FFFFFF', fontSize: 16, fontWeight: 'bold' },
   loginRow: { flexDirection: 'row', justifyContent: 'center' },
   loginText: { color: '#6B7280', fontSize: 14 },
-  loginLink: { color: '#08182D', fontSize: 14, fontWeight: '600' },
+  loginLink: { color: '#00AEEF', fontSize: 14, fontWeight: '600' },
 });
