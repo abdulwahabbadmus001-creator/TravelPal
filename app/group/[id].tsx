@@ -5,7 +5,7 @@ import {
 
 // @ts-ignore: expo-router does not provide TypeScript declarations in this project
 import { useLocalSearchParams, router } from 'expo-router';
-import { mockGroups } from '../../constants/mockData';
+import { mockGroups, mockUser } from '../../constants/mockData';
 import TrustScore from '../../components/TrustScore';
 
 export default function GroupDetailScreen() {
@@ -13,8 +13,9 @@ export default function GroupDetailScreen() {
   const group = mockGroups.find(g => g.id === id);
 
   if (!group) return null;
-
-  const canJoin = group.trustScore >= 25;
+  // group object does not include ownerId in mock data, so only compare by owner name
+  const isOwner = group.owner === mockUser.name;
+  const canJoin = group.trustScore >= 40;
 
   return (
     <SafeAreaView style={styles.container}>
@@ -86,7 +87,11 @@ export default function GroupDetailScreen() {
               ))}
           </View>
 
-          {canJoin ? (
+          {isOwner ? (
+            <View style={styles.disabledButton}>
+              <Text style={styles.disabledButtonText}>You are the Owner</Text>
+            </View>
+          ) : canJoin ? (
             group.isPrivate ? (
               <TouchableOpacity
                 style={styles.requestButton}
