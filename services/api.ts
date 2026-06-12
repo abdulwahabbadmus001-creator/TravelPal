@@ -33,17 +33,14 @@ export const authService = {
       throw error;
     }
   },
-  register: async (email: string, password: string, fullname: string, username: string) => {
-    try {
-      const response = await api.post('/user/register', {
-        email, password, fullname, username,
-        country: 'Nigeria', city: 'Lagos'
-      });
-      return response.data;
-    } catch (error) {
-      throw error;
-    }
-  },
+  register: async (email: string, password: string) => {
+  try {
+    const response = await api.post('/user/register', { email, password });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+},
   logout: () => { setToken(''); },
   getProfile: async () => {
     const response = await api.get('/user/profile');

@@ -7,27 +7,18 @@ import { router } from 'expo-router';
 import { authService } from '../../services/api';
 
 export default function RegisterScreen() {
-  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleRegister = async () => {
-    if (!name || !email || !password) {
-      Alert.alert('Error', 'Please fill in all fields.');
-      return;
-    }
-    if (password !== confirmPassword) {
-      Alert.alert('Error', 'Passwords do not match.');
+    if (!email || !password) {
+      Alert.alert('Error', 'Please enter your email and password.');
       return;
     }
     setLoading(true);
     try {
-      const result = await authService.register(
-        email, password, name,
-        name.toLowerCase().replace(' ', '')
-      );
+      const result = await authService.register(email, password);
       if (result.userId || result.success) {
         Alert.alert(
           'Account Created',
@@ -55,17 +46,8 @@ export default function RegisterScreen() {
         </View>
         <View style={styles.form}>
           <Text style={styles.title}>Create Account</Text>
-          <Text style={styles.subtitle}>Join thousands of verified travellers</Text>
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Full Name</Text>
-            <TextInput
-              style={styles.input}
-              value={name}
-              onChangeText={setName}
-              placeholder="Enter your full name"
-              placeholderTextColor="#9CA3AF"
-            />
-          </View>
+          <Text style={styles.subtitle}>Join the TravelPal community</Text>
+
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Email Address</Text>
             <TextInput
@@ -78,6 +60,7 @@ export default function RegisterScreen() {
               autoCapitalize="none"
             />
           </View>
+
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Password</Text>
             <TextInput
@@ -89,17 +72,7 @@ export default function RegisterScreen() {
               secureTextEntry
             />
           </View>
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Confirm Password</Text>
-            <TextInput
-              style={styles.input}
-              value={confirmPassword}
-              onChangeText={setConfirmPassword}
-              placeholder="Confirm your password"
-              placeholderTextColor="#9CA3AF"
-              secureTextEntry
-            />
-          </View>
+
           <TouchableOpacity
             style={[styles.registerButton, loading && { opacity: 0.7 }]}
             onPress={handleRegister}
@@ -109,6 +82,7 @@ export default function RegisterScreen() {
               {loading ? 'Creating Account...' : 'Create Account'}
             </Text>
           </TouchableOpacity>
+
           <View style={styles.loginRow}>
             <Text style={styles.loginText}>Already have an account? </Text>
             <TouchableOpacity onPress={() => router.back()}>
@@ -124,7 +98,7 @@ export default function RegisterScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#08182D' },
   scrollContent: { flexGrow: 1 },
-  header: { alignItems: 'center', paddingTop: 60, paddingBottom: 30 },
+  header: { alignItems: 'center', paddingTop: 80, paddingBottom: 40 },
   logo: { fontSize: 32, fontWeight: 'bold', color: '#FFFFFF', marginBottom: 8 },
   tagline: { fontSize: 16, color: '#CCF1FF' },
   form: {
