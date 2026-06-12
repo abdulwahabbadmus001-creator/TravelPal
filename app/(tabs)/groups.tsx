@@ -19,7 +19,7 @@ export default function GroupsScreen() {
           style={styles.createButton}
           onPress={() => router.push('/group/create')}
         >
-        <Text style={styles.createButtonText}>+ Create</Text>
+          <Text style={styles.createButtonText}>+ Create</Text>
         </TouchableOpacity>
       </View>
 
